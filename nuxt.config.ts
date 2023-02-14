@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase'],
+  modules: ['@nuxtjs/supabase', '@pinia/nuxt'],
+
+  pinia: {
+    autoImports: [
+      'defineStore', 'definePiniaStore'
+    ]
+  },
 
   supabase: {
     url: process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -18,6 +24,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    '~/assets/main.scss',
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css'
   ],
