@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Database } from '@/models/supabase.types'
 const route = useRoute()
-const type = String(route.params.content_type).toUpperCase()
+const type = route.params.content_type.toString().toLocaleUpperCase()
 const supabase = useSupabaseClient<Database>()
 const { data: collection, count } = await supabase.from('movies')
   .select('*', { count: 'exact' })
